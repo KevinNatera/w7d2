@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
         )
 
         if @user 
-            #login
-            session[:session_token] = @user.reset_session_token!
+            login(@user)
             redirect_to user_url(@user.id)
         else   
             render :new 
